@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS函数初步</title>
+	</head>
+	<body>
+		<input type="button" value="hello" onclick="sayHello('chenfeng')">
+		<input type="button" value="sum" onclick="sum(10,20)">
+
+		<script type="text/javascript">	
+			// function sum(a,b){
+			// 	alert(a+b);
+			// }
+
+			function sum(a,b){
+				alert('sum方法调用中...');
+				return a + b;
+			}
+
+			sayHello = function(username){
+				alert("Hello:"+username);
+			}
+
+			var retValue = sum(1, 2);
+			alert(retValue);
+
+			var retValue1 = sum("jack");
+			alert(retValue1);
+
+			var retValue2 = sum();
+			alert(retValue2);
+
+			// sum(10,20);
+			// sayHello('陈枫');
+		</script>
+	</body>
+</html>

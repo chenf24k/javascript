@@ -1,0 +1,22 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS函数初步</title>
+	</head>
+	<body>
+		<input type="button" value="sum" onclick="sum(false,1)">
+
+		<script type="text/javascript">	
+			function sum(a, b){
+				if (typeof a == "number" && typeof b == "number") {
+					return a + b;
+				}
+				alert();
+			}
+
+			var result = sum(1,1);
+			alert(result);
+		</script>
+	</body>
+</html>

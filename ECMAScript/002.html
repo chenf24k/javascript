@@ -1,0 +1,16 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>HTML中嵌入JS代码的第二种方式</title>
+	</head>
+	<body>
+		<input type="button" value="hello" onclick="alert('Hello JS 张三')"/>
+		<script type="text/javascript">
+			/*
+				代码块中的JS代码不需要，是遵循自上而下的顺序执行
+			*/
+			window.alert('Hello,World!');
+		</script>
+		<input type="button" value="hello" onclick="alert('Hello JS 张三')"/>
+	</body>
+</html>

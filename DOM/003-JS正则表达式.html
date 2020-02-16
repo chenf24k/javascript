@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>003-JS正则表达式</title>
+	<style type="text/css">
+		.center{
+			display: block;
+		    position: fixed;
+		    _position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    width: 666px;
+		    height: 200px;
+		    margin-left: -333px;
+		    margin-top: -200px;
+		    z-index: 10001;
+		    box-shadow: 2px 2px 4px #A0A0A0, -2px -2px 4px #A0A0A0;
+		    background-color: #fff;
+		    text-align: center;
+		    padding-top: 150px;
+		}
+
+		.button {
+			display: inline-block;
+			padding: 10px 10px;
+			font-size: 12px;
+			cursor: pointer;
+			text-align: center;   
+			text-decoration: none;
+			outline: none;
+			color: #fff;
+			background-color: #4CAF50;
+			border: none;
+			border-radius: 15px;
+			box-shadow: 0 9px #999;
+		}
+
+		.button:hover {background-color: #3e8e41}
+
+		.button:active {
+			background-color: #3e8e41;
+			box-shadow: 0 2px #666;
+			transform: translateY(4px);
+		}
+
+		.input{
+			outline-style: none ;
+			border: 1px solid #ccc; 
+			border-radius: 3px;
+			padding: 13px 14px;
+			width: 220px;
+			font-size: 14px;
+			font-weight: 300;
+			font-family: "Microsoft soft";
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var email = document.getElementById("email");
+			var emailValue;
+
+			document.getElementById("btn").onclick = function(){
+				// 获取输入框中的文本
+				emailValue = document.getElementById("email").value;
+	
+				addTips(emailValue);		
+			};
+
+			email.onkeydown = function(event){
+				if (event.keyCode === 13) {
+					addTips(emailValue);
+				}				
+			};
+
+			email.onfocus = function(){
+				document.getElementById("emailError").innerHTML = "";
+			};
+		}
+
+
+		// 函数：校验邮箱地址格式是否正确
+		function checkEmail(context){
+			var emailRegExp = /^\w+([-+.])*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+			return emailRegExp.test(context);
+		}
+
+		// 函数：校验邮箱地址格式是否正确,如不正确：提示不合法，如正确：提示校验通过
+		function addTips(context){
+			if (!checkEmail(context)) {
+				document.getElementById("emailError").innerHTML = "<span id='emailError' style='color: red; font-size: 12px;'>邮箱地址不合法！</span>";
+			} else{
+				document.getElementById("emailError").innerHTML = "<span id='emailError' style='color: green; font-size: 12px;'>邮箱校验通过！</span>";
+			}
+
+			/*
+			if (!ok) {
+				document.getElementById("emailError").innerText = "邮箱地址不合法！";
+			} else{
+				document.getElementById("emailError").innerText = "";
+				alert("邮箱验证通过！");
+			}
+			*/		
+		}
+	</script>
+
+	<div class="center">
+		<input type="text" id="email" class="input">
+		<input type="button" value="验证邮箱格式" id="btn" class="button" >	
+		<br>
+		<div id="emailError"></div>
+	</div>
+</body>
+</html>

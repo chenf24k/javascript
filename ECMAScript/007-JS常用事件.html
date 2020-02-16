@@ -1,0 +1,22 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS函数初步</title>
+	</head>
+	<body onload="sayHello()">
+		
+
+		<script type="text/javascript">	
+			function sayHello(){
+				alert("hello js");
+			}
+
+			var btnObj = document.getElementById("btn");
+			btnObj.onclick = sayHello;
+		</script>
+
+		<input type="button" value="hello" onclick="sayHello()">
+		<input type="button" value="document.getElementById" id="btn">
+	</body>
+</html>
