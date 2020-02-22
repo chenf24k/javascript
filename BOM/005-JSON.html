@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>005-JSON</title>
+    <meta charset="utf-8">
+    <title>005-JSON</title>
 </head>
 <body>
-	<script type="text/javascript">
-		var jsonObj = {
-			"sno":"110",
-			"sname":"张三",
-			"sex":"男"
-		}
+<script type="text/javascript">
+    var studentObj = {
+        "sno": "110",
+        "sname": "张三",
+        "sex": "男"
+    };
+    // 访问JSON数据
+    alert(studentObj.sno + ":" + studentObj.sname + ":" + studentObj.sex);
 
-		alert(jsonObj.sno+":"+jsonObj.sname);
+    Student = function (sno, sname, sex) {
+        this.sno = sno;
+        this.sname = sname;
+        this.sex = sex;
+    };
 
-		Student = function (sno,sname,sex) {
-			// body...
-			this.sno = sno;
-			this.sname = sname;
-			this.sex = sex;
-		}
+    var stu = new Student("111", "李四", "男");
+    alert(stu.sname);
 
-		var stu = new Student("111","Lishi","nan");
+    // JSON数组
+    var students = [
+        {"sno": "110", "sname": "张三", "sex": "男"},
+        {"sno": "111", "sname": "李四", "sex": "男"},
+        {"sno": "112", "sname": "王五", "sex": "男"}
+    ];
 
-		alert(stu.sno);
-
-
-		var fromJava = "{\"name\":\"zhangsan\",\"passwd\":\"123\"}";
-
-		window.eval("var accountJson = " + fromJava);
-
-		alert(accountJson.name);
-	</script>	
+    // 遍历
+    for (var i = 0; i < students.length; i++) {
+        var stuObj = students[i];
+        alert(stuObj.sno + "," + stuObj.sname + "," + stuObj.sex);
+    }
+</script>
 </body>
 </html>
