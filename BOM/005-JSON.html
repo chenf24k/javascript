@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>005-JSON</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var jsonObj = {
+			"sno":"110",
+			"sname":"张三",
+			"sex":"男"
+		}
+
+		alert(jsonObj.sno+":"+jsonObj.sname);
+
+		Student = function (sno,sname,sex) {
+			// body...
+			this.sno = sno;
+			this.sname = sname;
+			this.sex = sex;
+		}
+
+		var stu = new Student("111","Lishi","nan");
+
+		alert(stu.sno);
+
+
+		var fromJava = "{\"name\":\"zhangsan\",\"passwd\":\"123\"}";
+
+		window.eval("var accountJson = " + fromJava);
+
+		alert(accountJson.name);
+	</script>	
+</body>
+</html>
