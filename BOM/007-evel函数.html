@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>006-一些复杂的JSON</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * eval函数的作用是，将字符串当作一段js代码执行
+     *
+     * 后端返回给浏览器的数据时json格式的字符串，并非json对象
+     *
+     * 可以使用eval函数将json字符串转化为json对象
+     */
+
+    window.eval("var i = 100");
+
+    // alert("i = " + i);
+
+    var fromJava = "{\"sno\": \"110\", \"sname\": \"张三\", \"sex\": \"男\"}";
+
+    window.eval("var json = "+ fromJava);
+    alert(json.sname);
+
+</script>
+</body>
+</html>

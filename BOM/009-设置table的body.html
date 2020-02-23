@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>009-设置table的body</title>
+</head>
+<body>
+<script type="text/javascript">
+    const data = {
+        "total": 3,
+        "list": [
+            {
+                "id": 1,
+                "name": "小陈",
+                "sal": 3433.5
+            },
+            {
+                "id": 2,
+                "name": "小马",
+                "sal": 3344.5
+            },
+            {
+                "id": 3,
+                "name": "小沈",
+                "sal": 3455
+            }
+        ],
+        "timestamp": 2222222222
+    };
+
+    window.onload = function () {
+        var displayBtnElt = document.getElementById("displayBtn");
+        displayBtnElt.onclick = function () {
+            var emps = data.list;
+            var html = "";
+            for (var i = 0; i < emps.length; i++) {
+                var emp = emps[i];
+                html += "<tr>";
+                html += "<td align='center'>" + emp.id + "</td>";
+                html += "<td align='center'>" + emp.name + "</td>";
+                html += "<td align='center'>" + emp.sal + "</td>";
+                html += "</tr>";
+            }
+
+            document.getElementById("empTbody").innerHTML = html;
+            document.getElementById("count").innerText = data.total;
+        }
+    }
+
+
+</script>
+
+<h2>员工信息</h2>
+
+<table border="1" width="800px">
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>薪资</th>
+    </tr>
+    <tbody id="empTbody">
+    <tr>
+        <td  align='center'>Row 1, cell 1</td>
+        <td  align='center'>Row 1, cell 2</td>
+        <td  align='center'>Row 1, cell 3</td>
+    </tr>
+    <tr>
+        <td  align='center'>Row 2, cell 1</td>
+        <td  align='center'>Row 2, cell 2</td>
+        <td  align='center'>Row 2, cell 3</td>
+    </tr>
+    <tr>
+        <td  align='center'>Row 3, cell 1</td>
+        <td  align='center'>Row 3, cell 2</td>
+        <td  align='center'>Row 3, cell 3</td>
+    </tr>
+    </tbody>
+</table>
+共<span id="count">0</span>记录条
+<br>
+<input type="button" value="更新员工信息" id="displayBtn"/>
+</body>
+</html>

@@ -2,20 +2,46 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>005-JSON</title>
+    <title>006-一些复杂的JSON</title>
 </head>
 <body>
 <script type="text/javascript">
-    var studentObj = {
+    var user = {
         "usercode": 110,
         "username": "张三",
         "sex": true,
         "address": {
-            "city":"北京",
-            "street":""
-
-        }
+            "city": "北京",
+            "street": "",
+            "zipcode": "10000"
+        },
+        "aihao": ["smoke", "drink", "tt"]
     };
+
+    alert(user.address.city);
+
+    var students = {
+        "total": 3,
+        "data": [
+            {
+                "id": 1,
+                "name": "小陈",
+                "grade": 34.5
+            },
+            {
+                "id": 2,
+                "name": "小马",
+                "grade": 33.5
+            },
+            {
+                "id": 3,
+                "name": "小沈",
+                "grade": 34
+            }
+        ],
+        "timestamp": 2222222222
+    };
+    alert(students.data[0].name);
 
 
 </script>
