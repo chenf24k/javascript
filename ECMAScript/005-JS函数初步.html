@@ -1,38 +1,43 @@
 <!Doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>JS函数初步</title>
-	</head>
-	<body>
-		<input type="button" value="hello" onclick="sayHello('chenfeng')">
-		<input type="button" value="sum" onclick="sum(10,20)">
+<head>
+    <meta charset="utf-8">
+    <title>JS函数初步</title>
+</head>
+<body>
 
-		<script type="text/javascript">	
-			// function sum(a,b){
-			// 	alert(a+b);
-			// }
+<input type="button" value="求和" onclick="sum(10,20)">
+<input type="button" value="求差" onclick="dif(10,20)">
+<input type="button" value="hello" onclick="sayHello('chenfeng')">
 
-			function sum(a,b){
-				alert('sum方法调用中...');
-				return a + b;
-			}
+<script type="text/javascript">
 
-			sayHello = function(username){
-				alert("Hello:"+username);
-			}
+    // 函数定义一
+    function sum(a, b) {
+        alert("sum()函数调用中...");
+        return a + b;
+    }
 
-			var retValue = sum(1, 2);
-			alert(retValue);
+    // 函数定义二
+    dif = function (a, b) {
+        alert("dif()函数调用中...");
+        return a - b;
+    };
 
-			var retValue1 = sum("jack");
-			alert(retValue1);
+    sayHello = function (username) {
+        alert("Hello:" + username);
+    };
 
-			var retValue2 = sum();
-			alert(retValue2);
+    var retValue = sum(1, 2);
+    alert(retValue);
 
-			// sum(10,20);
-			// sayHello('陈枫');
-		</script>
-	</body>
+    var retValue1 = sum("jack");  // 可以给形参a赋值
+    alert(retValue1);             // 结果是 jackundefined
+
+    var retValue2 = sum();
+    alert(retValue2);             // 结果是 NaN ，NaN是值，表示该值不是数字 Not a Number
+
+</script>
+<input type="button" value="求和" id="btn">
+</body>
 </html>
