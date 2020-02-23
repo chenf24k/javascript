@@ -1,35 +1,35 @@
 <!Doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>JS代码捕捉.</title>
-	</head>
-	<body>
-		<input type="password" id="username">
-		<input type="button" value="显示密码" id="icon">
+<head>
+    <meta charset="utf-8">
+    <title>void运算符</title>
+</head>
+<body>
+<input type="password" id="pass"/>
+<input type="button" value="显示密码" id="icon"/>
 
-	
-		<script type="text/javascript">	
-			window.onload = function(){
-				var username = document.getElementById("username");
-				username.onkeydown = function(event){
-					if (event.keyCode === 13) {
-						alert("正在提交用户信息...");
-					}
-				}
-			}	
 
-			// window.onload = function(){
-			// 	var icon = document.getElementById("icon");
-			// 	icon.onclick = function(){
-			// 		if (username.type == "text") {
-			// 			username.type = "password";	
-			// 		} else{
-			// 			username.type = "text";
-			// 		}
-					
-			// 	}
-			// }	
-		</script>
-	</body>
+<script type="text/javascript">
+    window.onload = function () {
+        const passElt = document.getElementById("pass");
+        // 将函数注册到到 onkeydown 中
+        passElt.onkeydown = function (event) {
+            // 当发生 输入 事件时调用函数，传入 按键 的值
+            if (event.keyCode === 13) {
+                alert("用户信息提交中...");
+            }
+        };
+
+        // 实现 显示密码功能
+        const icon = document.getElementById("icon");
+        icon.onclick = function () {
+            if (passElt.type === "text") {
+                passElt.type = "password";
+            } else {
+                passElt.type = "text";
+            }
+        }
+    }
+</script>
+</body>
 </html>
