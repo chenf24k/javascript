@@ -1,0 +1,26 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>009-JS回调</title>
+</head>
+<body>
+<input type="button" value="回调" id="btn"/>
+<input type="button" value="匿名" id="btn2"/>
+<script type="text/javascript">
+    function doSome() {
+        alert("这里是回调函数...");
+    }
+
+    // 获取按钮对象
+    const btnObj = document.getElementById("btn");
+    // 给按钮onclick属性赋值 btn.onclick = 回调函数
+    btnObj.onclick = doSome;// 将回调函数注册到click事件上，click事件发生时会执行函数
+
+    const btnObj2 = document.getElementById("btn2");
+    btnObj2.onclick = function () { // 匿名函数也是回调函数
+        alert("匿名函数...");
+    }
+</script>
+</body>
+</html>
