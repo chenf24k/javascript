@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>trim的使用</title>
+    <meta charset="utf-8">
+    <title>trim的使用</title>
 </head>
 <body>
-	<script type="text/javascript">
-		String.prototype.trim = function(){
-			return this.replace(/^\s+/,"").replace(/\s+$/,"");
-		}
-		window.onload = function(){
-			document.getElementById("btn").onclick = function(){
-				var username = document.getElementById("username").value;
+<script type="text/javascript">
+    String.prototype.trim = function () {
+        return this.replace(/^\s+/, "").replace(/\s+$/, "");
+    }
 
-				username = username.trim();
+    window.onload = function () {
+        document.getElementById("btn").onclick = function () {
+            let username = document.getElementById("username").value;
+            username = username.trim();
+            alert("---->" + username + "<----");
+            document.getElementById("username").value = "";
+        }
+    }
 
-				alert("---->" + username + "<----");
+</script>
 
-				document.getElementById("username").value = "";
-			}
-		}
+<input type="text" id="username"/>
+<input type="button" value="获取用户名" id="btn"/>
 
-	</script>
-
-	<input type="text" id="username"/>
-	<input type="button" value="获取用户名" id="btn"/>
-	
 </body>
 </html>

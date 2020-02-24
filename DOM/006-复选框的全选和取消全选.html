@@ -7,8 +7,8 @@
 <body>
 	<script type="text/javascript">
 		window.onload = function(){
-			var firstChk = document.getElementById("firstChk");
-			var aihaos = document.getElementsByName("aihao");
+			const firstChk = document.getElementById("firstChk");
+			const aihaos = document.getElementsByName("aihao");
 			firstChk.onclick = function(){
 				// 获取第一个复选框的选中状态
 				// alert(firstChk.checked);
@@ -25,16 +25,16 @@
 				 	}
 				 }*/
 
-				for (var i = 0; i < aihaos.length; i++) {
+				for (let i = 0; i < aihaos.length; i++) {
 				 	aihaos[i].checked = firstChk.checked;
 				}
-			}
+			};
 
-			var all = aihaos.length;
-			for (var i = 0; i < aihaos.length; i++) {
-				aihaos[i].onclick = function(){  
-					var count = 0;
-					for (var i = 0; i < aihaos.length; i++) {
+			const all = aihaos.length;
+			for (let i = 0; i < aihaos.length; i++) {
+				aihaos[i].onclick = function(){
+					let count = 0;
+					for (let i = 0; i < aihaos.length; i++) {
 						if (aihaos[i].checked) {
 						count++;
 						}

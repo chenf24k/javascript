@@ -1,116 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>表单验证</title>
-	<style type="text/css">
-		span{
-			color: red;
-			font-size: 12px;
-		}
-	</style>
+    <meta charset="utf-8">
+    <title>表单验证</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
 </head>
 <body>
-	<script type="text/javascript">
-		window.onload = function(){
+<script type="text/javascript">
+    window.onload = function () {
 
-            /*----------------用户名校验----------------*/
-			var usernameErrorSpan = document.getElementById("usernameError");
-			var usernameElt = document.getElementById("username");
+        /*----------------用户名校验----------------*/
+        const usernameErrorSpan = document.getElementById("usernameError");
+        const usernameElt = document.getElementById("username");
 
-			// 给username输入框绑定blur事件
-			usernameElt.onblur = function(){
-				var username = usernameElt.value;
-				username = username.trim();
-				if (username === "") {
-					usernameErrorSpan.innerText = "用户名不能为空";
-				} else{
-					if (username.length < 6 || username.length > 14 ) {
-						usernameErrorSpan.innerText = "用户名长度必须[6-14]之间";
-					} else {
-						var regExp = /^[A-Za-z0-9]+$/;
-						var ok = regExp.test(username);
-						if (ok) {
-							// 用户名最终合法
-						} else {
-							usernameErrorSpan.innerText = "用户名只能由数字和字母组成";
-						}
-					}
-				}
-			}
+        // 给username输入框绑定blur事件
+        usernameElt.onblur = function () {
+            let username = usernameElt.value;
+            username = username.trim();
+            if (username === "") {
+                usernameErrorSpan.innerText = "用户名不能为空";
+            } else {
+                if (username.length < 6 || username.length > 14) {
+                    usernameErrorSpan.innerText = "用户名长度必须[6-14]之间";
+                } else {
+                    const regExp = /^[A-Za-z0-9]+$/;
+                    const ok = regExp.test(username);
+                    if (ok) {
+                        // 用户名最终合法
+                    } else {
+                        usernameErrorSpan.innerText = "用户名只能由数字和字母组成";
+                    }
+                }
+            }
+        };
 
-			// 给username输入框绑定获得焦点事件
-			usernameElt.onfocus = function(){
-				// 清空非法value
-				if (usernameErrorSpan.innerText != "") {
-					usernameElt.value = "";
-				}
+        // 给username输入框绑定获得焦点事件
+        usernameElt.onfocus = function () {
+            // 清空非法value
+            if (usernameErrorSpan.innerText != "") {
+                usernameElt.value = "";
+            }
+            // 清空span
+            usernameErrorSpan.innerText = "";
+        }
 
-				// 清空span
-				usernameErrorSpan.innerText = "";
-			}
+        /*----------------密码校验----------------*/
+        const passwordErrorSpan = document.getElementById("passwordError");
+        const password2Elt = document.getElementById("password2");
 
-			/*----------------密码校验----------------*/
-			var passwordErrorSpan = document.getElementById("passwordError");
-			var password2Elt = document.getElementById("password2");
+        password2Elt.onblur = function () {
+            // 获取密码和确认密码
+            const passwordElt = document.getElementById("password");
+            const password = passwordElt.value;
+            const password2 = password2Elt.value;
+            if (password != password2) {
+                passwordErrorSpan.innerText = "密码不一致";
+            }
+        }
 
-			password2Elt.onblur = function(){
-				// 获取密码和确认密码
-				var passwordElt = document.getElementById("password");
-				var password = passwordElt.value;
-				var password2 = password2Elt.value;
-				if ( password != password2 ) {
-					passwordErrorSpan.innerText = "密码不一致";
-				} 
-			}
+        // 给password输入框绑定获得焦点事件
+        password2Elt.onfocus = function () {
+            // 清空非法value
+            if (passwordErrorSpan.innerText != "") {
+                password2Elt.value = "";
+            }
+            // 清空span
+            passwordErrorSpan.innerText = "";
+        }
 
-			// 给password输入框绑定获得焦点事件
-			password2Elt.onfocus = function(){
-				// 清空非法value
-				if (passwordErrorSpan.innerText != "") {
-					password2Elt.value = "";
-				}
+        /*----------------邮箱格式校验----------------*/
+		const emailErrorSpan = document.getElementById("emailError");
+		const emailElt = document.getElementById("email");
 
-				// 清空span
-				passwordErrorSpan.innerText = "";
-			}
+		emailElt.onblur = function () {
+			const emailRegExp = /^\w+([-+.])*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+			const ok = emailRegExp.test(emailElt.value);
+			if (!ok) {
+                emailErrorSpan.innerText = "邮箱地址不正确";
+            }
+        }
 
-			/*----------------邮箱格式校验----------------*/
-			var emailErrorSpan = document.getElementById("emailError");
-			var emailElt = document.getElementById("email");
+        emailElt.onfocus = function () {
+            // 清空非法value
+            if (emailErrorSpan.innerText != "") {
+                emailElt.value = "";
+            }
 
-			emailElt.onblur = function(){
-				var emailRegExp = /^\w+([-+.])*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-				var ok = emailRegExp.test(emailElt.value);
-				if (!ok) {
-					emailErrorSpan.innerText = "邮箱地址不正确";
-				} 
-			}
+            // 清空span
+            emailErrorSpan.innerText = "";
+        }
+    }
+</script>
 
-			emailElt.onfocus = function(){
-				// 清空非法value
-				if (emailErrorSpan.innerText != "") {
-					emailElt.value = "";
-				}
+<form action="http://localhost:8080/jd/save" method="get">
+    <div class="outer">
+        <div class="inner">
+            用户名:<input type="text" name="username" id="username"/>
+            <span id="usernameError"></span>
+            <br>
+            密码:<input type="text" name="password" id="password"/>
+            <br>
+            <br>
+            确认密码:<input type="text" name="password2" id="password2"/>
+            <span id="passwordError"></span>
+            <br>
+            邮箱:<input type="text" name="email" id="email"/>
+            <span id="emailError"></span>
+            <br>
+            <br>
+            <input type="submit" value="注册"/>
+            <input type="reset" value="重置"/>
+        </div>
+    </div>
+</form>
 
-				// 清空span
-				emailErrorSpan.innerText = "";
-			}
-		}
-	</script>
-
-	<form action="http://localhost:8080/jd/save" method="get">
-		用户名:<input type="text" name="username" id="username"/><span id="usernameError"></span>
-		<br>
-		密码:<input type="text" name="password" id="password"/>
-		<br>
-		确认密码:<input type="text" name="password2" id="password2"/><span id="passwordError"></span>
-		<br>
-		邮箱:<input type="text" name="email" id="email"/><span id="emailError"></span>
-		<br>
-		<input type="submit" value="注册" />
-		<input type="reset" value="重置" />
-	</form>
-	
 </body>
 </html>

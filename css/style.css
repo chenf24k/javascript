@@ -1,0 +1,20 @@
+span {
+    color: red;
+    font-size: 12px;
+}
+
+.outer {
+    width: 350px;
+}
+
+span {
+    margin-left: 100px;
+}
+
+.inner {
+    padding-right: 100px;
+}
+
+.inner > input {
+    float: right;
+}
