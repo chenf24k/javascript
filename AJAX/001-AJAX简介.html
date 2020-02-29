@@ -24,17 +24,17 @@ AJAX = Asynchronous JavaScript And XML.
 
 <script type="text/javascript">
     function loadDoc() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        const xHttp = new XMLHttpRequest();
+        xHttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("demo").innerHTML = this.responseText;
             }
         };
 
         // 暂时不允许跨域访问
-        xhttp.open("GET", "https://www.baidu.com", true);
+        xHttp.open("GET", "https://www.baidu.com", true);
 
-        xhttp.send();
+        xHttp.send();
     }
 </script>
 
