@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--    <meta name="referrer" content="no-referrer">-->
+    <meta http-equiv="Access-Control-Allow-Origin" content="http://www.baidu.com:80">
+    <title>001-AJAX简介</title>
+</head>
+<body>
+
+<!--
+AJAX = Asynchronous JavaScript And XML.
+
+不刷新页面更新网页
+在页面加载后从服务器请求数据
+在页面加载后从服务器接收数据
+在后台向服务器发送数据
+-->
+
+<div id="demo">
+    <h1>XMLHttpRequest 对象</h1>
+    <button type="button" onclick="loadDoc()">修改内容</button>
+</div>
+
+<script type="text/javascript">
+    function loadDoc() {
+        const xHttp = new XMLHttpRequest();
+        xHttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML = this.responseText;
+            }
+        };
+
+        // 暂时不允许跨域访问
+        xHttp.open("GET", "https://www.baidu.com", true);
+
+        xHttp.send();
+    }
+</script>
+
+</body>
+</html>
